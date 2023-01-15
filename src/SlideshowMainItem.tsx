@@ -1,8 +1,6 @@
 import React, { type CSSProperties, memo, type SyntheticEvent } from "react";
-import { type SlideshowItem } from "./types";
+import { type MinimalMainItem } from "./types";
 import { isVideo } from "./util";
-
-export type MinimalMainItem = Pick<SlideshowItem, "url" | "mediaType">;
 
 export type SlideshowMainItemProps = {
   item: MinimalMainItem;

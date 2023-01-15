@@ -1,6 +1,6 @@
-import React, { ReactNode, useRef, useState } from "react";
+import React, { type ReactNode, useRef, useState } from "react";
 import useEventListener from "@use-it/event-listener";
-import { type SlideshowItem } from "./types";
+import { type ShortcutsByKey, type SlideshowItem } from "./types";
 import SlideshowMainItems from "./SlideshowMainItems";
 import useZoom from "./use-zoom";
 import SlideshowControls, { DefaultLeftChildren } from "./SlideshowControls";
@@ -9,7 +9,6 @@ import { useSlideshowMetaFade } from "./use-slideshow-meta-fade";
 import { useSlideshowPlay } from "./use-slideshow-play";
 import {
   mergeShortcuts,
-  type ShortcutsByKey,
   useSlideshowShortcuts,
 } from "./use-slideshow-shortcuts";
 import useShuffledArrayState from "./use-shuffled-array-state";

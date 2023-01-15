@@ -1,17 +1,10 @@
-import { type SlideshowItem } from "./types";
+import {
+  type ShortcutAction,
+  type ShortcutsByKey,
+  type SlideshowItem,
+} from "./types";
 
-export type KeyHandler = (e: KeyboardEvent) => void;
-
-export type ShortcutHandler<ItemT extends SlideshowItem = SlideshowItem> = (
-  item: ItemT,
-  e: KeyboardEvent
-) => void;
-
-type ShortcutAction<ItemT extends SlideshowItem = SlideshowItem> = {
-  handler: ShortcutHandler<ItemT>;
-  stopPropagation?: boolean;
-  preventDefault?: boolean;
-};
+type KeyHandler = (e: KeyboardEvent) => void;
 
 const defaultShortcutAction: ShortcutAction = {
   // eslint-disable-next-line @typescript-eslint/no-empty-function
@@ -19,15 +12,6 @@ const defaultShortcutAction: ShortcutAction = {
   stopPropagation: true,
   preventDefault: true,
 };
-
-export type ShortcutsByKey<ItemT extends SlideshowItem = SlideshowItem> =
-  Record<
-    string,
-    | ShortcutHandler<ItemT>
-    | ShortcutAction<ItemT>
-    | Array<ShortcutHandler<ItemT> | ShortcutAction<ItemT>>
-    | undefined
-  >;
 
 export type SlideshowShortcutsResult = {
   onShortcutKey: KeyHandler;

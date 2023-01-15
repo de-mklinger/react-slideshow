@@ -5,8 +5,8 @@ import {
   UnmanagedSlideshow,
   type UnmanagedSlideshowProps,
 } from "./Slideshow";
-import SlideshowMainItem, { type MinimalMainItem } from "./SlideshowMainItem";
-import { type SlideshowItem } from "./types";
+import { type MinimalMainItem, type SlideshowItem } from "./types";
+import SlideshowMainItem from "./SlideshowMainItem";
 
 export function QuickStartSlideshow<
   ItemT extends SlideshowItem = SlideshowItem
