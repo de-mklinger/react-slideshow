@@ -36,9 +36,12 @@
     "eslint-config-prettier": "^8.6.0",
     "eslint-config-xo": "^0.43.1",
     "eslint-config-xo-typescript": "^0.55.1",
+    "jest-environment-jsdom": "^29.3.1",
+    "npm-run-all": "^4.1.5",
     "prettier": "^2.8.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "rimraf": "^4.0.6",
     "ts-jest": "^29.0.5",
     "tsup": "^6.5.0",
     "typescript": "^4.9.4"
@@ -54,7 +57,9 @@
     "prettier": "prettier -c ./src",
     "fix:lint": "eslint ./src/**/*.ts --fix",
     "fix:prettier": "prettier -w ./src",
-    "test": "jest"
+    "test": "jest",
+    "clean": "rimraf ./dist",
+    "prepublishOnly": "npm-run-all -p clean lint prettier -s build test"
   },
   "bugs": {
     "url": "https://github.com/de-mklinger/react-slideshow/issues"
@@ -76,6 +81,6 @@
   },
   "jest": {
     "preset": "ts-jest",
-    "testEnvironment": "node"
+    "testEnvironment": "jsdom"
   }
 }
