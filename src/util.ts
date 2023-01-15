@@ -35,7 +35,13 @@ export function isVideo(item: MinimalMainItem): boolean {
   }
 
   try {
-    const url = new URL(item.url, window.location.href);
+    const base =
+      typeof window === "object"
+        ? window.location.href
+        : "https://doesnotexist";
+
+    const url = new URL(item.url, base);
+
     const extension = getFileExtension(url.pathname);
 
     return !!extension && videoExtensions.includes(extension.toLowerCase());
