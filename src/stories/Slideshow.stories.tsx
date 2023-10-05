@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { Slideshow, SlideshowThemeSettings } from "../react-slideshow";
-import {xDemoItems} from "../demo/demo-items";
+import { Slideshow, SlideshowThemeSettings } from "../lib";
+import {minimalDemoItems} from "../demo/demo-items";
 
 const meta: Meta<typeof Slideshow> = {
   component: Slideshow,
@@ -11,7 +11,7 @@ export default meta;
 
 type Story = StoryObj<typeof Slideshow>;
 export const Default: Story = (args: typeof Default.args) => (
-  <Slideshow data-testId="InputField-id" items={xDemoItems} {...args} />
+  <Slideshow data-testId="InputField-id" items={minimalDemoItems} {...args} />
 );
 Default.args = {
 };
@@ -28,7 +28,7 @@ export const Small: Story = (args: typeof Small.args) => (
       thumbnailFit: "cover"
     }
   }}>
-    <Slideshow data-testId="InputField-id" items={xDemoItems} {...args} />
+    <Slideshow data-testId="InputField-id" items={minimalDemoItems} {...args} />
   </SlideshowThemeSettings>
 );
 Small.args = {
