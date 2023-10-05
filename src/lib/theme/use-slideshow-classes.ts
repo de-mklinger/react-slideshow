@@ -327,14 +327,11 @@ export function useIconClass() {
     return css`
       display: flex;
       min-height: ${minHeight};
+      svg {
+        width: 1em
+      }
     `;
   });
-}
-
-export function useBtnIconSvgClass() {
-  return css`
-    width: 1em;
-  `;
 }
 
 function useThemeMemo<T>(fn: FactoryFn<T>): T {

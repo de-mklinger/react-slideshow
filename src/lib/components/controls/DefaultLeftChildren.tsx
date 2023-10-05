@@ -4,7 +4,6 @@ import {
 } from "./ToggleHideControlsButton";
 import Button, { ButtonProps } from "./Button.tsx";
 import Icon from "./Icon.tsx";
-import { useBtnIconSvgClass } from "../../theme";
 
 type DefaultLeftChildrenProps = {
   previous?: () => void;
@@ -72,13 +71,10 @@ export function DefaultLeftChildren({
 // SVGs from https://flowbite.com/icons/
 
 function PreviousButton(props: ButtonProps) {
-  const svgClass = useBtnIconSvgClass();
-
   return (
     <Button title="Previous" {...props}>
       <Icon>
         <svg
-          className={svgClass}
           aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -98,13 +94,10 @@ function PreviousButton(props: ButtonProps) {
 }
 
 function NextButton(props: ButtonProps) {
-  const svgClass = useBtnIconSvgClass();
-
   return (
     <Button title="Next" {...props}>
       <Icon>
         <svg
-          className={svgClass}
           aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -124,13 +117,10 @@ function NextButton(props: ButtonProps) {
 }
 
 function PlayButton(props: ButtonProps) {
-  const svgClass = useBtnIconSvgClass();
-
   return (
     <Button title="Play" {...props}>
       <Icon>
         <svg
-          className={svgClass}
           aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -150,13 +140,10 @@ function PlayButton(props: ButtonProps) {
 }
 
 function LoopButton(props: ButtonProps) {
-  const svgClass = useBtnIconSvgClass();
-
   return (
     <Button title="Loop" {...props}>
       <Icon>
         <svg
-          className={svgClass}
           aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -176,13 +163,10 @@ function LoopButton(props: ButtonProps) {
 }
 
 function RandomButton(props: ButtonProps) {
-  const svgClass = useBtnIconSvgClass();
-
   return (
     <Button title="Random" {...props}>
       <Icon>
         <svg
-          className={svgClass}
           aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
