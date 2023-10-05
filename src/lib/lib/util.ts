@@ -1,27 +1,21 @@
 import { type SlideshowItem } from "../types";
 
-export function getMsValue(s: string) {
-  let groups = /^\s*(\d+(?:\.\d+)?)\s*ms\s*$/.exec(s);
-  if (groups) {
-    return Number(groups[1]);
-  }
-
-  groups = /^\s*(\d+(?:\.\d+)?)\s*s\s*$/.exec(s);
-  if (groups) {
-    return Number(groups[1]) * 1000;
-  }
-
-  throw new Error("Invalid css duration value: " + s);
-}
-
 export type StoppableEvent = Pick<Event, "preventDefault" | "stopPropagation">;
+
+export function stopEvent(e: Partial<StoppableEvent>) {
+  if (e.preventDefault) {
+    e.preventDefault();
+  }
+  if (e.stopPropagation) {
+    e.stopPropagation();
+  }
+}
 
 export function withStopEvent<Event extends StoppableEvent>(
   e: Event,
   handler?: (e: Event) => void,
 ) {
-  e.preventDefault();
-  e.stopPropagation();
+  stopEvent(e);
   if (handler) {
     handler(e);
   }

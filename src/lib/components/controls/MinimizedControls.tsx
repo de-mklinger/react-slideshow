@@ -1,9 +1,16 @@
-import {ToggleHideControlsButton, ToggleHideControlsButtonProps,} from "./ToggleHideControlsButton";
-import {useHoverEffect} from "../../lib/use-hover-effect";
-import {useMetaClass, useTopBarClass, useTopBarMinimizedClass,} from "../../theme";
-import {stopPropagation} from "../../lib/stop-propagation";
-import {TopBarLeft} from "./TopBarLeft";
+import {
+  ToggleHideControlsButton,
+  ToggleHideControlsButtonProps,
+} from "./ToggleHideControlsButton";
+import { useHoverEffect } from "../../lib/use-hover-effect";
+import {
+  useMetaClass,
+  useTopBarClass,
+  useTopBarMinimizedClass,
+} from "../../theme";
+import { TopBarLeft } from "./TopBarLeft";
 import classNames from "classnames";
+import { stopEvent } from "../../lib/util.ts";
 
 type MinimizedControlsProps = {
   className: string;
@@ -27,7 +34,7 @@ export function MinimizedControls({
     <div
       className={classNames(metaClass, topBarClass, topBarMinimizedClass, className)}
       ref={barRef}
-      onClick={stopPropagation}
+      onClick={stopEvent}
     >
       <TopBarLeft>
         <ToggleHideControlsButton {...otherProps} />

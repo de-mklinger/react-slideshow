@@ -1,5 +1,5 @@
-import {useHoverEffect} from "../../lib/use-hover-effect";
-import {MutableRefObject, RefCallback, useCallback, useRef} from "react";
+import { useHoverEffect } from "../../lib/use-hover-effect";
+import { MutableRefObject, RefCallback, useCallback, useRef } from "react";
 import {
   useBottomBarClass,
   useMetaClass,
@@ -9,10 +9,10 @@ import {
   useThumbnailsHorizontalListClass,
   useThumbnailWrapperClass,
 } from "../../theme";
-import {Control, FixedSizeList} from "../../window";
-import {stopPropagation} from "../../lib/stop-propagation";
-import {SlideshowItem} from "../../types";
+import { Control, FixedSizeList } from "../../window";
+import { SlideshowItem } from "../../types";
 import classNames from "classnames";
+import { stopEvent } from "../../lib/util.ts";
 
 export type BottomBarProps<ItemT extends SlideshowItem = SlideshowItem> = {
   className: string;
@@ -103,7 +103,7 @@ export function BottomBar({
     <div
       className={classNames(metaClass, bottomBarClass, className)}
       ref={barRef}
-      onClick={stopPropagation}
+      onClick={stopEvent}
     >
       <FixedSizeList
         orientation="horizontal"

@@ -1,11 +1,11 @@
-import {SlideshowItem} from "../../types";
-import {useHoverEffect} from "../../lib/use-hover-effect";
-import {useMetaClass, useTopBarClass} from "../../theme";
-import {stopPropagation} from "../../lib/stop-propagation";
-import {TopBarLeft} from "./TopBarLeft";
-import {TopBarRight} from "./TopBarRight";
-import {TopBarChildren} from "../Slideshow";
+import { SlideshowItem } from "../../types";
+import { useHoverEffect } from "../../lib/use-hover-effect";
+import { useMetaClass, useTopBarClass } from "../../theme";
+import { TopBarLeft } from "./TopBarLeft";
+import { TopBarRight } from "./TopBarRight";
+import { TopBarChildren } from "../Slideshow";
 import classNames from "classnames";
+import { stopEvent } from "../../lib/util.ts";
 
 export type TopBarProps<ItemT extends SlideshowItem = SlideshowItem> = {
   className: string;
@@ -37,7 +37,7 @@ export function TopBar<ItemT extends SlideshowItem = SlideshowItem>({
     <div
       className={classNames(metaClass, topBarClass, className)}
       ref={barRef}
-      onClick={stopPropagation}
+      onClick={stopEvent}
     >
       <TopBarLeft>
         {typeof leftChildren === "function"
