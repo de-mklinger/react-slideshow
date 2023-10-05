@@ -29,24 +29,6 @@ export default function useEventListener<K extends keyof WindowEventMap>(
   options?: Options,
 ): void;
 
-// export function useEventListener(
-//   eventName: string,
-//   handler: EventListenerOrEventListenerObject,
-//   element?: HTMLElement | Window | Document | null,
-//   options?: Options
-// ): void;
-
-// export function useEventListener<
-//   K extends keyof (HTMLElementEventMap & DocumentEventMap & WindowEventMap)
-// >(
-//   eventName: K,
-//   handler: (
-//     event: (HTMLElementEventMap & DocumentEventMap & WindowEventMap)[K]
-//   ) => void,
-//   element?: HTMLElement | Document | Window | null,
-//   options?: Options
-// ): void;
-
 export default function useEventListener(
   eventName: string,
   handler: Handler<unknown>,
