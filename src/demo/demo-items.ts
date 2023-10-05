@@ -1,4 +1,4 @@
-import { SlideshowItem } from "../react-slideshow";
+import { SlideshowItem } from "../lib";
 
 export const xDemoItems: SlideshowItem[] = [
   {

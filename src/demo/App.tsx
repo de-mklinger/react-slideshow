@@ -1,4 +1,4 @@
-import { QuickStartSlideshow, TopBarChildren } from "../react-slideshow";
+import { QuickStartSlideshow, TopBarChildren } from "../lib";
 import { customizedDemoItems, CustomizedSlideshowItem } from "./demo-items.ts";
 
 export default function App() {

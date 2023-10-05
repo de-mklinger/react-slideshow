@@ -47,7 +47,7 @@ export type FixedSizeListProps = {
   controlRef?: ControlRef;
 };
 
-export type VisibleIndices = {
+type VisibleIndices = {
   firstVisibleIdx: number;
   lastVisibleIdx: number;
 };
