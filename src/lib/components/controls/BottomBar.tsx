@@ -79,7 +79,6 @@ export function BottomBar({
     ],
   );
 
-  // eslint-disable-next-line @typescript-eslint/ban-types
   const controlRef: MutableRefObject<Control | null> = useRef(null);
   const controlRefCallback: RefCallback<Control> = useCallback((control) => {
     if (control) {

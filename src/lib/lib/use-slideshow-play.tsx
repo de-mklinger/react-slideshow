@@ -4,6 +4,8 @@ type UseSlideshowPlayResult = {
   resetPlay: () => void;
 };
 
+type Timeout = ReturnType<typeof setInterval>;
+
 export function useSlideshowPlay(
   play: boolean,
   next: () => void,
@@ -11,8 +13,7 @@ export function useSlideshowPlay(
 ): UseSlideshowPlayResult {
   const nextRef = useRef<() => void | undefined>();
   nextRef.current = next;
-  const playIntervalIdRef = useRef<any>(null);
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  const playIntervalIdRef = useRef<Timeout>();
   const resetFnRef = useRef<() => void>(() => {});
 
   useEffect(() => {

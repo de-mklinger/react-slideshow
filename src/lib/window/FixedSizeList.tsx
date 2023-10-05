@@ -30,9 +30,7 @@ export type Control = {
 };
 
 export type ControlRef =
-  // eslint-disable-next-line @typescript-eslint/ban-types
   | MutableRefObject<Control | null>
-  // eslint-disable-next-line @typescript-eslint/ban-types
   | RefCallback<Control | null>;
 
 export type FixedSizeListProps = {
@@ -83,7 +81,6 @@ export function FixedSizeList({
     itemHeight,
   );
 
-  // eslint-disable-next-line @typescript-eslint/ban-types
   const outerRef = useRef<HTMLHeadingElement | null>(null);
 
   const visibleIndices = outerRef.current
@@ -186,7 +183,7 @@ function getOrientationDependentAttributes(
   };
 }
 
-// eslint-disable-next-line
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function useMemoizeOne<FuncT extends (this: any, ...newArgs: any[]) => any>(
   func: FuncT,
 ) {
@@ -240,7 +237,6 @@ function getVisibleIndices(
 
 function initializeControlRef(
   controlRef: ControlRef | undefined,
-  // eslint-disable-next-line @typescript-eslint/ban-types
   div: HTMLDivElement | null,
   itemCount: number,
   attrs: OrientationDependentAttributes,

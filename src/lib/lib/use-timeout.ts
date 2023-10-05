@@ -1,13 +1,15 @@
 import { useCallback, useEffect, useRef } from "react";
 
+type Timeout = ReturnType<typeof setTimeout>;
+
 export function useTimeout(callback: () => void, delay: number) {
   const savedCallback = useRef(callback);
-  const savedId = useRef<any>(null);
+  const savedId = useRef<Timeout>();
 
   const doClear = useCallback(() => {
-    if (savedId.current !== null) {
+    if (savedId.current) {
       clearTimeout(savedId.current);
-      savedId.current = null;
+      savedId.current = undefined;
     }
   }, []);
 

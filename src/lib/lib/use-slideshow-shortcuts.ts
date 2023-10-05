@@ -7,7 +7,6 @@ import {
 type KeyHandler = (e: KeyboardEvent) => void;
 
 const defaultShortcutAction: ShortcutAction = {
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
   handler() {},
   stopPropagation: true,
   preventDefault: true,

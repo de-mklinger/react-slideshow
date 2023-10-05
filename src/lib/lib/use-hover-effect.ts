@@ -3,7 +3,6 @@ import { type MutableRefObject, useEffect, useRef } from "react";
 export function useHoverEffect<ElementType extends HTMLElement>(
   onMouseOver: () => void,
   onMouseOut: () => void,
-  // eslint-disable-next-line @typescript-eslint/ban-types
 ): MutableRefObject<ElementType | null> {
   const barRef = useRef<ElementType>(null);
 
