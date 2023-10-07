@@ -1,3 +1,7 @@
+/*
+ * This is a TypeScript and somehow reduced version of:
+ * `@use-it/event-listener` 1.7.1
+ */
 import { useRef, useEffect } from "react";
 
 type Options = Pick<AddEventListenerOptions, "capture" | "passive" | "once">;
@@ -10,7 +14,7 @@ type Handler<EventType> = (event: EventType) => void;
 export default function useEventListener<K extends keyof HTMLElementEventMap>(
   eventName: K,
   handler: Handler<HTMLElementEventMap[K]>,
-  // allow null to support usage with `useRef<HTMLElement | null>(null)`
+  // allow null to support usage with `useRef <HTMLElement | null>(null)`
   element: HTMLElement | null,
   options?: Options,
 ): void;
