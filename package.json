@@ -1,6 +1,5 @@
 {
-  "name": "@de-mklinger-internal/react-slideshow",
-  "private": true,
+  "name": "@de-mklinger/react-slideshow",
   "version": "2.0.0",
   "type": "module",
   "files": [
