@@ -6,13 +6,14 @@
   "files": [
     "dist"
   ],
-  "module": "./dist/react-slideshow.js",
+  "main": "/dist/react-slideshow.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/react-slideshow.js"
+      "import": "./dist/react-slideshow.js",
+      "types": "./dist/index.d.ts"
     }
   },
-  "types": "./dist/index.d.ts",
   "author": "Marc Klinger <mklinger@mklinger.de>",
   "license": "MIT",
   "repository": {
