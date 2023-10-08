@@ -93,5 +93,8 @@
         }
       ]
     }
+  },
+  "dependencies": {
+    "vite-plugin-svgr": "^4.1.0"
   }
 }

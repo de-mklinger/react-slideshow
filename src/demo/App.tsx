@@ -1,5 +1,6 @@
-import {QuickStartSlideshow, TopBarChildren, Icon} from "../lib";
+import {QuickStartSlideshow, TopBarChildren, Icon, SlideshowThemeSettings} from "../lib";
 import { customizedDemoItems, CustomizedSlideshowItem } from "./demo-items.ts";
+import {CircleInfoSvg} from "../lib/components/controls/icons";
 
 export default function App() {
   const RightChildren: TopBarChildren<CustomizedSlideshowItem> = (props) => {
@@ -7,9 +8,7 @@ export default function App() {
 
     const licenseLabel = (
       <Icon title={`Image License: ${item.license}`}>
-        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-          <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 9h2v5m-2 0h4M9.408 5.5h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
-        </svg>
+        <CircleInfoSvg />
       </Icon>
     );
 
@@ -28,9 +27,15 @@ export default function App() {
   };
 
   return (
-    <QuickStartSlideshow
-      items={customizedDemoItems}
-      topBarRightChildren={RightChildren}
-    />
+    <SlideshowThemeSettings overrides={{
+      meta: {
+        hideEnabled: false
+      }
+    }}>
+      <QuickStartSlideshow
+        items={customizedDemoItems}
+        topBarRightChildren={RightChildren}
+      />
+    </SlideshowThemeSettings>
   );
 }

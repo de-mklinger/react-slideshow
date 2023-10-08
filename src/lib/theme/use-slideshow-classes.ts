@@ -326,9 +326,11 @@ export function useIconClass() {
 
     return css`
       display: flex;
+      align-items: center;
       min-height: ${minHeight};
       svg {
-        width: 1em
+        fill: currentColor;
+        height: 1em
       }
     `;
   });
