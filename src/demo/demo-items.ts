@@ -25,7 +25,7 @@ export const customizedDemoItems: CustomizedSlideshowItem[] = [
     url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Holy_SURP_Hovhannes_Church.jpg/1280px-Holy_SURP_Hovhannes_Church.jpg",
     thumbnailUrl:
       "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Holy_SURP_Hovhannes_Church.jpg/320px-Holy_SURP_Hovhannes_Church.jpg",
-    license: "CC BY-SA 4.0 DEED",
+    license: "CC BY-SA 4.0",
     infoUrl:
       "https://commons.wikimedia.org/wiki/File:Holy_SURP_Hovhannes_Church.jpg",
   },
@@ -34,7 +34,7 @@ export const customizedDemoItems: CustomizedSlideshowItem[] = [
     url: "https://upload.wikimedia.org/wikipedia/commons/0/01/Alcedo_atthis_-_Riserve_naturali_e_aree_contigue_della_fascia_fluviale_del_Po.jpg",
     thumbnailUrl:
       "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Alcedo_atthis_-_Riserve_naturali_e_aree_contigue_della_fascia_fluviale_del_Po.jpg/320px-Alcedo_atthis_-_Riserve_naturali_e_aree_contigue_della_fascia_fluviale_del_Po.jpg",
-    license: "CC BY-SA 4.0 DEED",
+    license: "CC BY-SA 4.0",
     infoUrl:
       "https://commons.wikimedia.org/wiki/File:Alcedo_atthis_-_Riserve_naturali_e_aree_contigue_della_fascia_fluviale_del_Po.jpg",
   },
@@ -43,7 +43,7 @@ export const customizedDemoItems: CustomizedSlideshowItem[] = [
     url: "https://upload.wikimedia.org/wikipedia/commons/8/86/Evolution_of_a_Tornado.jpg",
     thumbnailUrl:
       "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Evolution_of_a_Tornado.jpg/320px-Evolution_of_a_Tornado.jpg",
-    license: "CC BY-SA 4.0 DEED",
+    license: "CC BY-SA 4.0",
     infoUrl:
       "https://commons.wikimedia.org/wiki/File:Evolution_of_a_Tornado.jpg",
   },
@@ -52,7 +52,7 @@ export const customizedDemoItems: CustomizedSlideshowItem[] = [
     url: "https://upload.wikimedia.org/wikipedia/commons/e/ea/FCAB_EMD_GT22CU-3_San_Pedro_-_Ascotan.jpg",
     thumbnailUrl:
       "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/FCAB_EMD_GT22CU-3_San_Pedro_-_Ascotan.jpg/640px-FCAB_EMD_GT22CU-3_San_Pedro_-_Ascotan.jpg",
-    license: "CC BY-SA 4.0 DEED",
+    license: "CC BY-SA 4.0",
     infoUrl:
       "https://commons.wikimedia.org/wiki/File:FCAB_EMD_GT22CU-3_San_Pedro_-_Ascotan.jpg",
   },
@@ -61,7 +61,7 @@ export const customizedDemoItems: CustomizedSlideshowItem[] = [
     url: "https://upload.wikimedia.org/wikipedia/commons/e/e8/Khaoyai_06.jpg",
     thumbnailUrl:
       "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Khaoyai_06.jpg/320px-Khaoyai_06.jpg",
-    license: "CC BY-SA 3.0 DEED",
+    license: "CC BY-SA 3.0",
     infoUrl: "https://commons.wikimedia.org/wiki/File:Khaoyai_06.jpg",
     description:
       "Wild elephants walking up a road in the area of Khao Yai National Park.",
