@@ -8,7 +8,7 @@ import classNames from "classnames";
 import { stopEvent } from "../../lib/util.ts";
 
 export type TopBarProps<ItemT extends SlideshowItem = SlideshowItem> = {
-  className: string;
+  className?: string;
   items: ItemT[];
   currentItemIdx: number;
   directoryPath?: string;

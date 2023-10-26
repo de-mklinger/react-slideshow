@@ -13,7 +13,7 @@ import classNames from "classnames";
 import { stopEvent } from "../../lib/util.ts";
 
 type MinimizedControlsProps = {
-  className: string;
+  className?: string;
   onMouseOver: () => void;
   onMouseOut: () => void;
 } & ToggleHideControlsButtonProps;

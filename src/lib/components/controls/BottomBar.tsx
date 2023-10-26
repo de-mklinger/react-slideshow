@@ -15,7 +15,7 @@ import classNames from "classnames";
 import { stopEvent } from "../../lib/util.ts";
 
 export type BottomBarProps<ItemT extends SlideshowItem = SlideshowItem> = {
-  className: string;
+  className?: string;
   // DirectoryPath: string
   // recursive: boolean
   items: ItemT[];
