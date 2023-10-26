@@ -1,11 +1,11 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { RefObject, useCallback, useEffect, useRef, useState } from "react";
 import { useTimeout } from "./use-timeout";
 import {
+  useSlideshowTheme,
   useFadeInClass,
   useFadeOutClass,
   useInvisibleClass,
-} from "../theme/use-slideshow-classes.ts";
-import {useSlideshowTheme} from "../theme/use-slideshow-theme.ts";
+} from "../theme";
 
 type SlideshowMetaFadeHookResult = [
   string, // fadeClassName
@@ -15,6 +15,7 @@ type SlideshowMetaFadeHookResult = [
 
 export function useSlideshowMetaFade(
   metaFadeDurationMillis: number,
+  rootElementRef?: RefObject<HTMLElement>
 ): SlideshowMetaFadeHookResult {
   const [fadeOut, setFadeOut] = useState<boolean | null>(null);
   const mouseOverRef = useRef(false);
@@ -66,21 +67,33 @@ export function useSlideshowMetaFade(
     startFadeOutTimeout();
   }, [doFadeIn, startFadeOutTimeout]);
 
+  const rootElement = rootElementRef?.current
+
   useEffect(() => {
+    if (rootElement === null) {
+      // Not yet initialized
+      return;
+    }
+
+    const actualRootElement = rootElement ?? window;
+
+    if (!actualRootElement.addEventListener || !actualRootElement.removeEventListener) {
+      // Not supported
+      return;
+    }
+
     const actualDoFadeOut = doFadeOut;
     const actualDoClearTimeout = clearFadeOutTimeout;
 
-    // TODO should bind listeners on slideshow screen
-
-    document.addEventListener("mousemove", onMouseMove);
-    document.addEventListener("mouseleave", actualDoFadeOut);
+    actualRootElement.addEventListener("mousemove", onMouseMove);
+    actualRootElement.addEventListener("mouseleave", actualDoFadeOut);
 
     return () => {
       actualDoClearTimeout();
-      document.removeEventListener("mousemove", onMouseMove);
-      document.removeEventListener("mouseleave", actualDoFadeOut);
+      actualRootElement.removeEventListener("mousemove", onMouseMove);
+      actualRootElement.removeEventListener("mouseleave", actualDoFadeOut);
     };
-  }, [onMouseMove, doFadeOut, clearFadeOutTimeout]);
+  }, [onMouseMove, doFadeOut, clearFadeOutTimeout, rootElement]);
 
   const onMouseOver = useCallback(() => {
     mouseOverRef.current = true;

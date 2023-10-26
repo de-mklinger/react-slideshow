@@ -29,7 +29,7 @@ export default function App() {
   return (
     <SlideshowThemeSettings overrides={{
       meta: {
-        hideEnabled: false
+        hideEnabled: true
       }
     }}>
       <QuickStartSlideshow

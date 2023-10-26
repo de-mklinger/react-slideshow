@@ -1,5 +1,5 @@
 import { ShortcutsByKey, SlideshowItem } from "../types";
-import { useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import useShuffledArrayState from "../lib/use-shuffled-array-state";
 import useZoom from "../lib/use-zoom";
 import {
@@ -7,7 +7,6 @@ import {
   useSlideshowShortcuts,
 } from "../lib/use-slideshow-shortcuts";
 import useEventListener from "../lib/use-event-listener";
-import { useSlideshowMetaFade } from "../lib/use-slideshow-meta-fade";
 import { useSlideshowPlay } from "../lib/use-slideshow-play";
 import { useWakeLock } from "../lib/use-wake-lock";
 import { DefaultLeftChildren } from "./controls/DefaultLeftChildren";
@@ -18,7 +17,8 @@ import {
 import SlideshowMainItems from "./SlideshowMainItems";
 import SlideshowControls from "./controls/SlideshowControls";
 import { SlideshowProps } from "./Slideshow";
-import {useSlideshowTheme} from "../theme/use-slideshow-theme.ts";
+import { useSlideshowTheme } from "../theme";
+import { useSlideshowMetaFade2 } from "../lib/use-slideshow-meta-fade2.ts";
 
 export type UnmanagedSlideshowProps<
   ItemT extends SlideshowItem = SlideshowItem,
@@ -37,7 +37,21 @@ export function UnmanagedSlideshow<
   customShortcuts = {},
   disableDefaultShortcuts,
 }: UnmanagedSlideshowProps<ItemT>) {
-  const wrapperRef = useRef<HTMLDivElement>(null);
+  const wrapperRef = useRef<HTMLDivElement>();
+  const theme = useSlideshowTheme();
+  const {fadeState, setRootRef} = useSlideshowMetaFade2(
+    theme.meta.hideDelayMillis,
+    theme.meta.fadeDurationMillis
+  );
+
+  console.log("Render with fadeState:", fadeState);
+
+  const wrapperRefCallback = useCallback((el: HTMLDivElement | undefined | null) => {
+    // TODO undefined or null on unmount?
+    wrapperRef.current = el ?? undefined;
+    setRootRef(el ?? null);
+  }, []);
+
   const {
     getShuffledItemIdx,
     getUnshuffledItemIdx,
@@ -136,11 +150,10 @@ export function UnmanagedSlideshow<
 
   useEventListener("keyup", onShortcutKey, window);
 
-  const theme = useSlideshowTheme();
-
-  const [fadeClassName, onMouseOver, onMouseOut] = useSlideshowMetaFade(
-    theme.meta.fadeDurationMillis,
-  );
+  // const [fadeClassName, onMouseOver, onMouseOut] = useSlideshowMetaFade(
+  //   theme.meta.fadeDurationMillis,
+  //   wrapperRef
+  // );
 
   const { resetPlay } = useSlideshowPlay(play, next, 3000);
 
@@ -165,7 +178,7 @@ export function UnmanagedSlideshow<
   const zoomedDragImageClass = useZoomedDragImageClass();
 
   return (
-    <div ref={wrapperRef} onClick={onClick} className={slideshowScreenClass}>
+    <div ref={wrapperRefCallback} onClick={onClick} className={slideshowScreenClass}>
       <div className={zoomedDragImageClass} ref={zoomedDragImageRef} />
 
       <SlideshowMainItems
@@ -177,11 +190,13 @@ export function UnmanagedSlideshow<
       />
 
       <SlideshowControls
-        className={fadeClassName}
+        // className={fadeClassName}
         items={items}
         currentItemIdx={currentItemIdx}
-        onMouseOver={onMouseOver}
-        onMouseOut={onMouseOut}
+        // onMouseOver={onMouseOver}
+        // onMouseOut={onMouseOut}
+        onMouseOver={() => {}}
+        onMouseOut={() => {}}
         leftChildren={actualTopBarLeftChildren}
         rightChildren={topBarRightChildren}
         onItemClick={setCurrentItemIdx}

@@ -15,7 +15,7 @@ export default function useEventListener<K extends keyof HTMLElementEventMap>(
   eventName: K,
   handler: Handler<HTMLElementEventMap[K]>,
   // allow null to support usage with `useRef <HTMLElement | null>(null)`
-  element: HTMLElement | null,
+  element?: HTMLElement | null | undefined,
   options?: Options,
 ): void;
 
@@ -29,7 +29,7 @@ export default function useEventListener<K extends keyof DocumentEventMap>(
 export default function useEventListener<K extends keyof WindowEventMap>(
   eventName: K,
   handler: Handler<WindowEventMap[K]>,
-  element?: Window,
+  element?: Window | undefined,
   options?: Options,
 ): void;
 

@@ -10,6 +10,8 @@ export type SlideshowTheme = {
   };
   meta: {
     hideEnabled: boolean;
+    hideTopBarEnabled: boolean;
+    hideBottomBarEnabled: boolean;
     hideDelayMillis: number;
     fadeDurationMillis: number;
     barsBackgroundColor: CSSProperties["backgroundColor"];
