@@ -6,3 +6,4 @@ export * from "./components/QuickStartSlideshow";
 export * from "./components/UnmanagedSlideshow";
 export { default as Icon } from "./components/controls/Icon"
 export { default as Button } from "./components/controls/Button"
+export * from "./components/controls/icons"
