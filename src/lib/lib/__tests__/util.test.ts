@@ -1,4 +1,4 @@
-#!/usr/bin/env -S node --loader tsx --test
+#!/usr/bin/env -S node --import tsx --test
 
 import { isVideo, stopEvent, StoppableEvent, withStopEvent } from "../util";
 import test from "node:test";

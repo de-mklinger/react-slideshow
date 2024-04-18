@@ -14,7 +14,7 @@ try {
   child_process.execFileSync(
     process.argv0,
     [
-      "--loader",
+      "--import",
       "tsx",
       "--test",
       ...testFiles
