@@ -4,6 +4,7 @@
  * https://creativecommons.org/licenses/by/4.0/
  * No changes made.
  */
+/// <reference types="vite-plugin-svgr/client" />
 export { default as ArrowLeftSvg } from "./arrow-left.svg?react";
 export { default as ArrowRightSvg } from "./arrow-right.svg?react";
 export { default as CaretDownSvg } from "./caret-down.svg?react";
