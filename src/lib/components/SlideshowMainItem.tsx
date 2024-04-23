@@ -66,7 +66,16 @@ function WrappedSlideshowMainItem({
     );
   }
 
-  return <img onLoad={onLoad} alt="" style={style} src={item.url} />;
+  return (
+    <img
+      onLoad={onLoad}
+      alt=""
+      style={style}
+      src={item.url}
+      loading={visible ? "eager" : "lazy"}
+      decoding={visible ? "auto" : "async"}
+    />
+  );
 }
 
 const SlideshowMainItem = memo(WrappedSlideshowMainItem);

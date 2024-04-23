@@ -65,6 +65,8 @@ export function BottomBar({
             className={classNames(thumbnailClass, {
               [selectedThumbnailClass]: selected,
             })}
+            loading="lazy"
+            decoding="async"
           />
         </a>
       );
