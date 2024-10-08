@@ -4,7 +4,14 @@ import {
 } from "./ToggleHideControlsButton";
 import Button, { ButtonProps } from "./Button.tsx";
 import Icon from "./Icon.tsx";
-import {ArrowLeftSvg, ArrowRightSvg, PlaySvg, RepeatSvg, ShuffleSvg} from "./icons";
+import {
+  ArrowLeftSvg,
+  ArrowRightSvg,
+  ExpandSvg,
+  PlaySvg,
+  RepeatSvg,
+  ShuffleSvg,
+} from "./icons";
 
 type DefaultLeftChildrenProps = {
   previous?: () => void;
@@ -15,6 +22,7 @@ type DefaultLeftChildrenProps = {
   togglePlay: () => void;
   loop: boolean;
   toggleLoop: () => void;
+  toggleFullscreen: () => void
 } & ToggleHideControlsButtonProps;
 
 export function DefaultLeftChildren({
@@ -28,6 +36,7 @@ export function DefaultLeftChildren({
   togglePlay,
   loop,
   toggleLoop,
+  toggleFullscreen,
 }: DefaultLeftChildrenProps) {
   return (
     <>
@@ -38,13 +47,17 @@ export function DefaultLeftChildren({
       <PreviousButton
         disabled={!previous}
         onClick={() => {
-          previous && previous();
+          if (previous) {
+            previous();
+          }
         }}
       />
       <NextButton
         disabled={!next}
         onClick={() => {
-          next && next();
+          if (next) {
+            next();
+          }
         }}
       />
       <PlayButton
@@ -65,11 +78,14 @@ export function DefaultLeftChildren({
           toggleRandom();
         }}
       />
+      <FullscreenButton
+        onClick={() => {
+          toggleFullscreen();
+        }}
+      />
     </>
   );
 }
-
-// SVGs from https://flowbite.com/icons/
 
 function PreviousButton(props: ButtonProps) {
   return (
@@ -116,6 +132,16 @@ function RandomButton(props: ButtonProps) {
     <Button title="Random" {...props}>
       <Icon>
         <ShuffleSvg />
+      </Icon>
+    </Button>
+  );
+}
+
+function FullscreenButton(props: ButtonProps) {
+  return (
+    <Button title="Fullscreen" {...props}>
+      <Icon>
+        <ExpandSvg />
       </Icon>
     </Button>
   );

@@ -1,5 +1,5 @@
 import { ShortcutsByKey, SlideshowItem } from "../types";
-import { useRef, useState } from "react";
+import { CSSProperties, useRef, useState } from "react";
 import useShuffledArrayState from "../lib/use-shuffled-array-state";
 import useZoom from "../lib/use-zoom";
 import {
@@ -14,11 +14,19 @@ import { DefaultLeftChildren } from "./controls/DefaultLeftChildren";
 import {
   useSlideshowScreenClass,
   useZoomedDragImageClass,
-} from "../theme/use-slideshow-classes.ts";
+  useSlideshowTheme,
+} from "../theme";
 import SlideshowMainItems from "./SlideshowMainItems";
 import SlideshowControls from "./controls/SlideshowControls";
 import { SlideshowProps } from "./Slideshow";
-import {useSlideshowTheme} from "../theme/use-slideshow-theme.ts";
+import { FullScreen, useFullScreenHandle } from "react-full-screen";
+
+const fullscreenStyle: CSSProperties = {
+  width: "100%",
+  height: "100%",
+};
+
+const nonFullscreenStyle: CSSProperties = {};
 
 export type UnmanagedSlideshowProps<
   ItemT extends SlideshowItem = SlideshowItem,
@@ -59,7 +67,8 @@ export function UnmanagedSlideshow<
 
   const currentItemIdx = itemIdx;
 
-  const haveNext = () => loop || getShuffledItemIdx(currentItemIdx) + 1 < items.length;
+  const haveNext = () =>
+    loop || getShuffledItemIdx(currentItemIdx) + 1 < items.length;
 
   const next = () => {
     let newIdx = getShuffledItemIdx(currentItemIdx) + 1;
@@ -146,6 +155,16 @@ export function UnmanagedSlideshow<
 
   useWakeLock(play);
 
+  const fullScreenHandle = useFullScreenHandle();
+
+  const toggleFullscreen = () => {
+    if (fullScreenHandle.active) {
+      fullScreenHandle.exit().catch(console.error);
+    } else {
+      fullScreenHandle.enter().catch(console.error);
+    }
+  };
+
   const actualTopBarLeftChildren = topBarLeftChildren ?? (
     <DefaultLeftChildren
       hideControls={hideControls}
@@ -158,37 +177,49 @@ export function UnmanagedSlideshow<
       togglePlay={togglePlay}
       loop={loop}
       toggleLoop={toggleLoop}
+      toggleFullscreen={toggleFullscreen}
     />
   );
 
   const slideshowScreenClass = useSlideshowScreenClass();
   const zoomedDragImageClass = useZoomedDragImageClass();
 
+  const additionalStyle = fullScreenHandle.active
+    ? fullscreenStyle
+    : nonFullscreenStyle;
+
   return (
-    <div ref={wrapperRef} onClick={onClick} className={slideshowScreenClass}>
-      <div className={zoomedDragImageClass} ref={zoomedDragImageRef} />
+    <FullScreen handle={fullScreenHandle}>
+      <div
+        ref={wrapperRef}
+        onClick={onClick}
+        className={slideshowScreenClass}
+        style={additionalStyle}
+      >
+        <div className={zoomedDragImageClass} ref={zoomedDragImageRef} />
 
-      <SlideshowMainItems
-        items={shuffledItems}
-        itemIdx={getShuffledItemIdx(currentItemIdx)}
-        scale={`${itemAdjust.scalePercentage}%`}
-        translateX={`${itemAdjust.offset.x}px`}
-        translateY={`${itemAdjust.offset.y}px`}
-      />
+        <SlideshowMainItems
+          items={shuffledItems}
+          itemIdx={getShuffledItemIdx(currentItemIdx)}
+          scale={`${itemAdjust.scalePercentage}%`}
+          translateX={`${itemAdjust.offset.x}px`}
+          translateY={`${itemAdjust.offset.y}px`}
+        />
 
-      <SlideshowControls
-        className={fadeClassName}
-        items={items}
-        currentItemIdx={currentItemIdx}
-        onMouseOver={onMouseOver}
-        onMouseOut={onMouseOut}
-        leftChildren={actualTopBarLeftChildren}
-        rightChildren={topBarRightChildren}
-        onItemClick={setCurrentItemIdx}
-        getItemUrl={getItemUrl}
-        hideControls={hideControls}
-        toggleHideControls={toggleHideControls}
-      />
-    </div>
+        <SlideshowControls
+          className={fadeClassName}
+          items={items}
+          currentItemIdx={currentItemIdx}
+          onMouseOver={onMouseOver}
+          onMouseOut={onMouseOut}
+          leftChildren={actualTopBarLeftChildren}
+          rightChildren={topBarRightChildren}
+          onItemClick={setCurrentItemIdx}
+          getItemUrl={getItemUrl}
+          hideControls={hideControls}
+          toggleHideControls={toggleHideControls}
+        />
+      </div>
+    </FullScreen>
   );
 }
