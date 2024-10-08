@@ -1,6 +1,6 @@
 import Button from "./Button.tsx";
 import Icon from "./Icon.tsx";
-import {CaretDownSvg, XmarkSvg} from "./icons";
+import { CaretDownSvg, CaretUpSvg } from "./icons";
 
 export type ToggleHideControlsButtonProps = {
   hideControls: boolean;
@@ -17,7 +17,7 @@ export function ToggleHideControlsButton({
         toggleHideControls();
       }}
     >
-      {hideControls ? <ShowIcon/> : <HideIcon />}
+      {hideControls ? <ShowIcon /> : <HideIcon />}
     </Button>
   );
 }
@@ -33,7 +33,7 @@ function ShowIcon() {
 function HideIcon() {
   return (
     <Icon>
-      <XmarkSvg />
+      <CaretUpSvg />
     </Icon>
-  )
+  );
 }

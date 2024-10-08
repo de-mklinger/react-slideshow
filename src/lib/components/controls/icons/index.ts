@@ -8,6 +8,7 @@
 export { default as ArrowLeftSvg } from "./arrow-left.svg?react";
 export { default as ArrowRightSvg } from "./arrow-right.svg?react";
 export { default as CaretDownSvg } from "./caret-down.svg?react";
+export { default as CaretUpSvg } from "./caret-up.svg?react";
 export { default as CircleInfoSvg } from "./circle-info.svg?react";
 export { default as DownloadSvg } from "./download.svg?react";
 export { default as ExpandSvg } from "./expand.svg?react";
