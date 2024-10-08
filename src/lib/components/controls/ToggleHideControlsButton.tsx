@@ -27,7 +27,7 @@ function ShowIcon() {
     <Icon>
       <CaretDownSvg />
     </Icon>
-  )
+  );
 }
 
 function HideIcon() {
