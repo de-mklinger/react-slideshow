@@ -13,6 +13,8 @@ export type SlideshowTheme = {
     hideDelayMillis: number;
     fadeDurationMillis: number;
     barsBackgroundColor: CSSProperties["backgroundColor"];
+    barsColor: CSSProperties["color"];
+    barsFontSize: CSSProperties["fontSize"];
     topBarLeftChildrenPadding: CSSProperties["padding"];
     topBarLeftChildrenGap: CSSProperties["gap"];
     topBarRightChildrenPadding: CSSProperties["padding"];
@@ -59,8 +61,8 @@ type RecursivePartial<T> = {
   [P in keyof T]?: T[P] extends (infer U)[]
     ? RecursivePartial<U>[]
     : T[P] extends object | undefined
-    ? RecursivePartial<T[P]>
-    : T[P];
+      ? RecursivePartial<T[P]>
+      : T[P];
 };
 
 export type SlideshowThemeOverrides = RecursivePartial<SlideshowTheme>;
@@ -74,12 +76,17 @@ export const SlideshowThemeSettingsContext = createContext<
   SlideshowThemeSettingsContextType | undefined
 >(undefined);
 
-export type SlideshowThemeSettingsProps = PropsWithChildren<SlideshowThemeSettingsContextType>
+export type SlideshowThemeSettingsProps =
+  PropsWithChildren<SlideshowThemeSettingsContextType>;
 
-export const SlideshowThemeSettings = ({theme, overrides, children}: SlideshowThemeSettingsProps) => {
+export const SlideshowThemeSettings = ({
+  theme,
+  overrides,
+  children,
+}: SlideshowThemeSettingsProps) => {
   return (
-    <SlideshowThemeSettingsContext.Provider value={{theme, overrides}}>
+    <SlideshowThemeSettingsContext.Provider value={{ theme, overrides }}>
       {children}
     </SlideshowThemeSettingsContext.Provider>
   );
-}
+};

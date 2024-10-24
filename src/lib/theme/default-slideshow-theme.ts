@@ -1,4 +1,4 @@
-import {SlideshowTheme} from "./slideshow-theme.tsx";
+import { SlideshowTheme } from "./slideshow-theme.tsx";
 
 export const defaultSlideshowTheme: SlideshowTheme = {
   screen: {
@@ -13,6 +13,8 @@ export const defaultSlideshowTheme: SlideshowTheme = {
     hideDelayMillis: 2000,
     fadeDurationMillis: 200,
     barsBackgroundColor: "rgba(0, 0, 0, 0.3)",
+    barsColor: "#fff",
+    barsFontSize: "0.8rem",
     topBarLeftChildrenPadding: "0.5rem 0.25rem",
     topBarLeftChildrenGap: "0.25rem",
     topBarRightChildrenPadding: "0.5rem 1.5rem",

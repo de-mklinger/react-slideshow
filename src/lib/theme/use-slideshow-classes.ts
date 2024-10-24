@@ -47,6 +47,7 @@ export function useMetaClass() {
       animation-timing-function: linear;
 
       // FIXME still required?
+
       &.fade-out {
         animation-name: fade-out;
       }
@@ -71,11 +72,10 @@ export function useTopBarClass() {
       display: flex;
       justify-content: space-between;
 
-      // FIXME still required?
       &,
-      & .btn-link {
-        color: white;
-        font-size: 0.8rem;
+      & a {
+        color: ${theme.meta.barsColor};
+        font-size: ${theme.meta.barsFontSize};
       }
     `,
   );
@@ -115,12 +115,12 @@ export function useTopBarRightClass() {
 export function useBottomBarClass() {
   return useThemeMemo(
     (theme) => css`
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
 
-      background-color: ${theme.meta.barsBackgroundColor};
+        background-color: ${theme.meta.barsBackgroundColor};
     }
     `,
   );
@@ -198,12 +198,12 @@ export function useOuterThumbnailSize() {
 
 export function useFadeOutClass() {
   const fadeOut = keyframes`
-    from {
-      opacity: 1;
-    }
-    to {
-      opacity: 0;
-    }
+      from {
+          opacity: 1;
+      }
+      to {
+          opacity: 0;
+      }
   `;
 
   return css`
@@ -213,12 +213,12 @@ export function useFadeOutClass() {
 
 export function useFadeInClass() {
   const fadeIn = keyframes`
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
+      from {
+          opacity: 0;
+      }
+      to {
+          opacity: 1;
+      }
   `;
 
   return css`
@@ -328,9 +328,10 @@ export function useIconClass() {
       display: flex;
       align-items: center;
       min-height: ${minHeight};
+
       svg {
         fill: currentColor;
-        height: 1em
+        height: 1em;
       }
     `;
   });
