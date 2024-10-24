@@ -2,13 +2,21 @@ import { type SlideshowItem } from "../types";
 
 export type StoppableEvent = Pick<Event, "preventDefault" | "stopPropagation">;
 
-export function stopEvent(e: Partial<StoppableEvent>) {
+export function preventDefault(e: Partial<StoppableEvent>) {
   if (e.preventDefault) {
     e.preventDefault();
   }
+}
+
+export function stopPropagation(e: Partial<StoppableEvent>) {
   if (e.stopPropagation) {
     e.stopPropagation();
   }
+}
+
+export function stopEvent(e: Partial<StoppableEvent>) {
+  preventDefault(e);
+  stopPropagation(e);
 }
 
 export function withStopEvent<Event extends StoppableEvent>(

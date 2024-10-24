@@ -10,7 +10,7 @@ import {
 } from "../../theme";
 import { TopBarLeft } from "./TopBarLeft";
 import classNames from "classnames";
-import { stopEvent } from "../../lib/util.ts";
+import { stopPropagation } from "../../lib/util.ts";
 
 type MinimizedControlsProps = {
   className?: string;
@@ -32,9 +32,14 @@ export function MinimizedControls({
 
   return (
     <div
-      className={classNames(metaClass, topBarClass, topBarMinimizedClass, className)}
+      className={classNames(
+        metaClass,
+        topBarClass,
+        topBarMinimizedClass,
+        className,
+      )}
       ref={barRef}
-      onClick={stopEvent}
+      onClick={stopPropagation}
     >
       <TopBarLeft>
         <ToggleHideControlsButton {...otherProps} />

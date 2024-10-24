@@ -5,7 +5,7 @@ import { TopBarLeft } from "./TopBarLeft";
 import { TopBarRight } from "./TopBarRight";
 import { TopBarChildren } from "../Slideshow";
 import classNames from "classnames";
-import { stopEvent } from "../../lib/util.ts";
+import { stopPropagation } from "../../lib/util.ts";
 
 export type TopBarProps<ItemT extends SlideshowItem = SlideshowItem> = {
   className?: string;
@@ -37,7 +37,7 @@ export function TopBar<ItemT extends SlideshowItem = SlideshowItem>({
     <div
       className={classNames(metaClass, topBarClass, className)}
       ref={barRef}
-      onClick={stopEvent}
+      onClick={stopPropagation}
     >
       <TopBarLeft>
         {typeof leftChildren === "function"

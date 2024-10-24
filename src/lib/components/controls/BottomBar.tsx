@@ -12,7 +12,7 @@ import {
 import { Control, FixedSizeList } from "../../window";
 import { SlideshowItem } from "../../types";
 import classNames from "classnames";
-import { stopEvent } from "../../lib/util.ts";
+import { stopPropagation } from "../../lib/util.ts";
 
 export type BottomBarProps<ItemT extends SlideshowItem = SlideshowItem> = {
   className?: string;
@@ -105,7 +105,7 @@ export function BottomBar({
     <div
       className={classNames(metaClass, bottomBarClass, className)}
       ref={barRef}
-      onClick={stopEvent}
+      onClick={stopPropagation}
     >
       <FixedSizeList
         orientation="horizontal"
