@@ -20,11 +20,6 @@
     "url": "https://github.com/de-mklinger/react-slideshow"
   },
   "homepage": "https://github.com/de-mklinger/react-slideshow#readme",
-  "peerDependencies": {
-    "@emotion/css": ">=11",
-    "react": ">=18",
-    "react-dom": ">=18"
-  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -35,7 +30,13 @@
     "build-storybook": "storybook build",
     "prepublishOnly": "npm run build"
   },
+  "peerDependencies": {
+    "@emotion/css": ">=11",
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
   "dependencies": {
+    "@emotion/css": ">=11",
     "classnames": "^2.5.1",
     "memoize-one": "^6.0.0",
     "react": ">=18",
