@@ -20,6 +20,7 @@ import SlideshowMainItems from "./SlideshowMainItems";
 import SlideshowControls from "./controls/SlideshowControls";
 import { SlideshowProps } from "./Slideshow";
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
+import { useSwipe } from "../lib/use-swipe.ts";
 
 const fullscreenStyle: CSSProperties = {
   width: "100%",
@@ -109,6 +110,11 @@ export function UnmanagedSlideshow<
     }
   };
 
+  const swipeHandlers = useSwipe({
+    onSwipeLeft: next,
+    onSwipeRight: previous,
+  });
+
   const toggleHideControls = () => {
     setHideControls((oldHideControls) => !oldHideControls);
   };
@@ -192,6 +198,7 @@ export function UnmanagedSlideshow<
     <FullScreen handle={fullScreenHandle}>
       <div
         ref={wrapperRef}
+        {...swipeHandlers}
         onClick={onClick}
         className={slideshowScreenClass}
         style={additionalStyle}
