@@ -36,14 +36,12 @@
     "react-dom": ">=18"
   },
   "dependencies": {
-    "@emotion/css": ">=11",
     "classnames": "^2.5.1",
     "memoize-one": "^6.0.0",
-    "react": ">=18",
-    "react-dom": ">=18",
     "react-full-screen": "^1.1.1"
   },
   "devDependencies": {
+    "@emotion/css": "^11.13.5",
     "@eslint/js": "^9.39.1",
     "@storybook/addon-essentials": "^8.6.14",
     "@storybook/addon-interactions": "^8.6.14",
@@ -52,6 +50,7 @@
     "@storybook/react": "^8.6.14",
     "@storybook/react-vite": "^8.6.14",
     "@storybook/test": "^8.6.14",
+    "@types/node": "^24.10.1",
     "@types/react": "^18.3.27",
     "@types/react-dom": "^18.3.7",
     "@vitejs/plugin-react-swc": "^3.11.0",
@@ -62,6 +61,8 @@
     "glob": "^11.1.0",
     "globals": "^15.15.0",
     "prettier": "^3.6.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "storybook": "^8.6.14",
     "tsx": "^4.20.6",
     "typescript": "^5.9.3",
@@ -69,5 +70,8 @@
     "vite": "^5.4.21",
     "vite-plugin-dts": "^4.5.4",
     "vite-plugin-svgr": "^4.5.0"
+  },
+  "engines": {
+    "node": ">=24"
   }
 }
