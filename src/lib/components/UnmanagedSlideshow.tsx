@@ -113,6 +113,7 @@ export function UnmanagedSlideshow<
   const swipeHandlers = useSwipe({
     onSwipeLeft: next,
     onSwipeRight: previous,
+    disabled: itemAdjust.scalePercentage > 100,
   });
 
   const toggleHideControls = () => {

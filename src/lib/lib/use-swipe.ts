@@ -6,6 +6,7 @@ export type UseSwipeOptions = {
   onSwipeUp?: () => void;
   onSwipeDown?: () => void;
   threshold?: number;
+  disabled?: boolean;
 };
 
 export type UseSwipeResult = {
@@ -22,11 +23,20 @@ export function useSwipe({
   onSwipeUp,
   onSwipeDown,
   threshold = 64,
+  disabled = false,
 }: UseSwipeOptions): UseSwipeResult {
   const touchStart = useRef<ClientCoords>();
   const touchEnd = useRef<ClientCoords>();
 
   return useMemo(() => {
+    if (disabled) {
+      return {
+        onTouchStart: () => {},
+        onTouchMove: () => {},
+        onTouchEnd: () => {},
+      }
+    }
+
     const onTouchStart: TouchEventHandler = (e) => {
       touchStart.current = getClientCoords(e);
     };
@@ -65,6 +75,7 @@ export function useSwipe({
       onTouchEnd,
     };
   }, [
+    disabled,
     touchStart,
     touchEnd,
     threshold,
