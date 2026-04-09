@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { Slideshow, type SlideshowProps } from "./Slideshow";
+import { useSlideshowScreenClass } from "../settings/use-slideshow-classes.ts";
 import { type MinimalMainItem, type SlideshowItem } from "../types";
+import { Slideshow, type SlideshowProps } from "./Slideshow";
 import SlideshowMainItem from "./SlideshowMainItem";
 import {
   UnmanagedSlideshow,
   type UnmanagedSlideshowProps,
 } from "./UnmanagedSlideshow";
-import {useSlideshowScreenClass} from "../settings/use-slideshow-classes.ts";
 
 export function QuickStartSlideshow<
   ItemT extends SlideshowItem = SlideshowItem,

@@ -1,16 +1,16 @@
-import {
-  ToggleHideControlsButton,
-  ToggleHideControlsButtonProps,
-} from "./ToggleHideControlsButton";
+import classNames from "classnames";
 import { useHoverEffect } from "../../lib/use-hover-effect";
+import { stopPropagation } from "../../lib/util.ts";
 import {
   useMetaClass,
   useTopBarClass,
   useTopBarMinimizedClass,
 } from "../../settings";
+import {
+  ToggleHideControlsButton,
+  ToggleHideControlsButtonProps,
+} from "./ToggleHideControlsButton";
 import { TopBarLeft } from "./TopBarLeft";
-import classNames from "classnames";
-import { stopPropagation } from "../../lib/util.ts";
 
 type MinimizedControlsProps = {
   className?: string;

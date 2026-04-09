@@ -1,12 +1,12 @@
 import {
   Icon,
   QuickStartSlideshow,
-  TopBarChildren,
   SlideshowSettings,
   SlideshowSettingsProvider,
+  TopBarChildren,
 } from "../lib";
-import { customizedDemoItems, CustomizedSlideshowItem } from "./demo-items.ts";
 import { CircleInfoSvg } from "../lib/components/controls/icons";
+import { customizedDemoItems, CustomizedSlideshowItem } from "./demo-items.ts";
 
 const settings: SlideshowSettings = {
   theme: {

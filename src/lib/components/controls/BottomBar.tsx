@@ -1,5 +1,7 @@
-import { useHoverEffect } from "../../lib/use-hover-effect";
+import classNames from "classnames";
 import { MutableRefObject, RefCallback, useCallback, useRef } from "react";
+import { useHoverEffect } from "../../lib/use-hover-effect";
+import { stopPropagation } from "../../lib/util.ts";
 import {
   useBottomBarClass,
   useMetaClass,
@@ -9,10 +11,8 @@ import {
   useThumbnailsHorizontalListClass,
   useThumbnailWrapperClass,
 } from "../../settings";
-import { Control, FixedSizeList } from "../../window";
 import { SlideshowItem } from "../../types";
-import classNames from "classnames";
-import { stopPropagation } from "../../lib/util.ts";
+import { Control, FixedSizeList } from "../../window";
 
 export type BottomBarProps<ItemT extends SlideshowItem = SlideshowItem> = {
   className?: string;

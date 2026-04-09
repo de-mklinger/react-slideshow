@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { Slideshow, SlideshowSettingsProvider, TopBarChildren } from "../lib";
 import { minimalDemoItems } from "../demo/demo-items";
+import { Slideshow, SlideshowSettingsProvider, TopBarChildren } from "../lib";
 
 const meta: Meta<typeof Slideshow> = {
   component: Slideshow,

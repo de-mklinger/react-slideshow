@@ -8,7 +8,7 @@ export type SlideshowThemeSettingsProps = PropsWithChildren<{
 
 export const SlideshowSettingsProvider = ({
   children,
-  settings
+  settings,
 }: SlideshowThemeSettingsProps) => {
   return (
     <SlideshowSettingsContext.Provider value={settings}>

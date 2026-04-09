@@ -1,8 +1,8 @@
-import { describe, it, mock } from "node:test";
 import { act, renderHook } from "@testing-library/react";
-import { useSwipe } from "../use-swipe";
 import * as assert from "node:assert";
+import { describe, it, mock } from "node:test";
 import { TouchEvent } from "react";
+import { useSwipe } from "../use-swipe";
 
 import "global-jsdom/register";
 

@@ -1,6 +1,6 @@
 import { type RefObject, useRef, useState } from "react";
-import { withStopEvent } from "./util";
 import useEventListener from "./use-event-listener";
+import { withStopEvent } from "./util";
 
 type Offset = {
   x: number;

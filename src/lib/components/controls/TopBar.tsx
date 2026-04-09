@@ -1,11 +1,11 @@
-import { SlideshowItem } from "../../types";
+import classNames from "classnames";
 import { useHoverEffect } from "../../lib/use-hover-effect";
+import { stopPropagation } from "../../lib/util.ts";
 import { useMetaClass, useTopBarClass } from "../../settings";
+import { SlideshowItem } from "../../types";
+import { TopBarChildren } from "../Slideshow";
 import { TopBarLeft } from "./TopBarLeft";
 import { TopBarRight } from "./TopBarRight";
-import { TopBarChildren } from "../Slideshow";
-import classNames from "classnames";
-import { stopPropagation } from "../../lib/util.ts";
 
 export type TopBarProps<ItemT extends SlideshowItem = SlideshowItem> = {
   className?: string;

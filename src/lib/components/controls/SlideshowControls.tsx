@@ -1,8 +1,8 @@
 import { type SlideshowItem } from "../../types";
-import { ToggleHideControlsButtonProps } from "./ToggleHideControlsButton";
 import { BottomBar, BottomBarProps } from "./BottomBar";
-import { TopBar, TopBarProps } from "./TopBar";
 import { MinimizedControls } from "./MinimizedControls";
+import { ToggleHideControlsButtonProps } from "./ToggleHideControlsButton";
+import { TopBar, TopBarProps } from "./TopBar";
 
 type SlideshowControlsProps<ItemT extends SlideshowItem = SlideshowItem> =
   TopBarProps<ItemT> & BottomBarProps<ItemT> & ToggleHideControlsButtonProps;

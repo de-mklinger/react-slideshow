@@ -1,9 +1,7 @@
 import { useContext, useMemo } from "react";
-import {
-  SlideshowTheme,
-} from "./slideshow-theme.tsx";
 import { defaultSlideshowTheme } from "./default-slideshow-theme.ts";
 import { SlideshowSettingsContext } from "./slideshow-settings-context.ts";
+import { SlideshowTheme } from "./slideshow-theme.tsx";
 
 export function useSlideshowTheme(): SlideshowTheme {
   const settings = useContext(SlideshowSettingsContext);

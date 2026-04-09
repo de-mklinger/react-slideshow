@@ -1,6 +1,6 @@
-import { useBtnActiveClass, useBtnClass } from "../../settings";
-import { ButtonHTMLAttributes, PropsWithChildren } from "react";
 import classNames from "classnames";
+import { ButtonHTMLAttributes, PropsWithChildren } from "react";
+import { useBtnActiveClass, useBtnClass } from "../../settings";
 
 export type ButtonProps = PropsWithChildren<
   ButtonHTMLAttributes<HTMLButtonElement> & {
@@ -8,7 +8,12 @@ export type ButtonProps = PropsWithChildren<
   }
 >;
 
-export default function Button({active, className, children, ...props}: ButtonProps) {
+export default function Button({
+  active,
+  className,
+  children,
+  ...props
+}: ButtonProps) {
   const btnClass = useBtnClass();
   const btnActiveClass = useBtnActiveClass();
 
@@ -20,5 +25,5 @@ export default function Button({active, className, children, ...props}: ButtonPr
     >
       {children}
     </button>
-  )
+  );
 }

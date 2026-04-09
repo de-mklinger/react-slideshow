@@ -1,5 +1,5 @@
-import { SlideshowTheme } from "./slideshow-theme.tsx";
 import { SlideshowBaseSettings } from "./slideshow-base-settings.ts";
+import { SlideshowTheme } from "./slideshow-theme.tsx";
 
 type RecursivePartial<T> = {
   [P in keyof T]?: T[P] extends (infer U)[]
@@ -9,7 +9,8 @@ type RecursivePartial<T> = {
       : T[P];
 };
 
-export type SlideshowBaseSettingsOverrides = RecursivePartial<SlideshowBaseSettings>;
+export type SlideshowBaseSettingsOverrides =
+  RecursivePartial<SlideshowBaseSettings>;
 
 export type SlideshowThemeOverrides = RecursivePartial<SlideshowTheme>;
 

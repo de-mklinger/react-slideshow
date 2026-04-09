@@ -1,8 +1,8 @@
 #!/usr/bin/env -S node --import tsx --test
 
-import { isVideo, stopEvent, StoppableEvent, withStopEvent } from "../util";
-import test from "node:test";
 import * as assert from "node:assert";
+import test from "node:test";
+import { isVideo, stopEvent, StoppableEvent, withStopEvent } from "../util";
 
 test("isVideo", () => {
   assert.strictEqual(
@@ -17,7 +17,6 @@ test("isVideo", () => {
   assert.strictEqual(isVideo({ url: "test.mp4" }), true);
 
   assert.strictEqual(isVideo({ url: "noextension" }), false);
-
 });
 
 await test.describe("stopEvent", () => {

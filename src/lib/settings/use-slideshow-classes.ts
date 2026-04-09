@@ -1,5 +1,5 @@
-import { useMemo } from "react";
 import { css, keyframes } from "@emotion/css";
+import { useMemo } from "react";
 import { getScrollbarSize } from "../window";
 import { SlideshowTheme } from "./slideshow-theme.tsx";
 import { useSlideshowTheme } from "./use-slideshow-theme.ts";

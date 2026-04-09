@@ -2,7 +2,7 @@
  * This is a TypeScript and somehow reduced version of:
  * `@use-it/event-listener` 1.7.1
  */
-import { useRef, useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 type Options = Pick<AddEventListenerOptions, "capture" | "passive" | "once">;
 

@@ -1,26 +1,26 @@
-import { ShortcutsByKey, SlideshowItem } from "../types";
 import { CSSProperties, useRef, useState } from "react";
+import { FullScreen, useFullScreenHandle } from "react-full-screen";
+import useEventListener from "../lib/use-event-listener";
 import useShuffledArrayState from "../lib/use-shuffled-array-state";
-import useZoom from "../lib/use-zoom";
+import { useSlideshowMetaFade } from "../lib/use-slideshow-meta-fade";
+import { useSlideshowPlay } from "../lib/use-slideshow-play";
 import {
   mergeShortcuts,
   useSlideshowShortcuts,
 } from "../lib/use-slideshow-shortcuts";
-import useEventListener from "../lib/use-event-listener";
-import { useSlideshowMetaFade } from "../lib/use-slideshow-meta-fade";
-import { useSlideshowPlay } from "../lib/use-slideshow-play";
+import { useSwipe } from "../lib/use-swipe.ts";
 import { useWakeLock } from "../lib/use-wake-lock";
-import { DefaultLeftChildren } from "./controls/DefaultLeftChildren";
+import useZoom from "../lib/use-zoom";
 import {
   useSlideshowScreenClass,
-  useZoomedDragImageClass,
   useSlideshowTheme,
+  useZoomedDragImageClass,
 } from "../settings";
-import SlideshowMainItems from "./SlideshowMainItems";
+import { ShortcutsByKey, SlideshowItem } from "../types";
+import { DefaultLeftChildren } from "./controls/DefaultLeftChildren";
 import SlideshowControls from "./controls/SlideshowControls";
 import { SlideshowProps } from "./Slideshow";
-import { FullScreen, useFullScreenHandle } from "react-full-screen";
-import { useSwipe } from "../lib/use-swipe.ts";
+import SlideshowMainItems from "./SlideshowMainItems";
 
 const fullscreenStyle: CSSProperties = {
   width: "100%",

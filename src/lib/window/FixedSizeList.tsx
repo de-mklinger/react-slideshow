@@ -1,3 +1,4 @@
+import memoizeOne, { type MemoizedFn } from "memoize-one";
 import {
   type CSSProperties,
   type MutableRefObject,
@@ -7,7 +8,6 @@ import {
   useRef,
   useState,
 } from "react";
-import memoizeOne, { type MemoizedFn } from "memoize-one";
 
 export type ItemRenderFunction = (
   idx: number,

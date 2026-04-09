@@ -1,7 +1,3 @@
-import {
-  ToggleHideControlsButton,
-  ToggleHideControlsButtonProps,
-} from "./ToggleHideControlsButton";
 import Button, { ButtonProps } from "./Button.tsx";
 import Icon from "./Icon.tsx";
 import {
@@ -12,6 +8,10 @@ import {
   RepeatSvg,
   ShuffleSvg,
 } from "./icons";
+import {
+  ToggleHideControlsButton,
+  ToggleHideControlsButtonProps,
+} from "./ToggleHideControlsButton";
 
 type DefaultLeftChildrenProps = {
   previous?: () => void;
@@ -22,7 +22,7 @@ type DefaultLeftChildrenProps = {
   togglePlay: () => void;
   loop: boolean;
   toggleLoop: () => void;
-  toggleFullscreen: () => void
+  toggleFullscreen: () => void;
 } & ToggleHideControlsButtonProps;
 
 export function DefaultLeftChildren({

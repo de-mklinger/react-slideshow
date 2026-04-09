@@ -1,4 +1,4 @@
-import { TouchEventHandler, TouchEvent, useRef, useMemo } from "react";
+import { TouchEvent, TouchEventHandler, useMemo, useRef } from "react";
 
 export type UseSwipeOptions = {
   onSwipeLeft?: () => void;
@@ -34,7 +34,7 @@ export function useSwipe({
         onTouchStart: () => {},
         onTouchMove: () => {},
         onTouchEnd: () => {},
-      }
+      };
     }
 
     const onTouchStart: TouchEventHandler = (e) => {

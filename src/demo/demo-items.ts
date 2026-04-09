@@ -68,10 +68,10 @@ export const customizedDemoItems: CustomizedSlideshowItem[] = [
   },
 ];
 
-export const minimalDemoItems: SlideshowItem[] = customizedDemoItems.slice(0, 3).map(
-  (i) => ({
+export const minimalDemoItems: SlideshowItem[] = customizedDemoItems
+  .slice(0, 3)
+  .map((i) => ({
     id: i.id,
     url: i.url,
     thumbnailUrl: i.thumbnailUrl,
-  }),
-);
+  }));

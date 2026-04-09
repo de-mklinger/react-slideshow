@@ -1,9 +1,9 @@
+export { default as Button } from "./components/controls/Button";
+export { default as Icon } from "./components/controls/Icon";
+export * from "./components/controls/icons";
+export * from "./components/QuickStartSlideshow";
+export * from "./components/Slideshow";
+export * from "./components/UnmanagedSlideshow";
+export * from "./settings";
 export * from "./types";
 export * from "./window";
-export * from "./settings";
-export * from "./components/Slideshow";
-export * from "./components/QuickStartSlideshow";
-export * from "./components/UnmanagedSlideshow";
-export { default as Icon } from "./components/controls/Icon"
-export { default as Button } from "./components/controls/Button"
-export * from "./components/controls/icons"

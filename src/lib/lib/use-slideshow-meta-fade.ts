@@ -1,11 +1,11 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { useTimeout } from "./use-timeout";
 import {
   useFadeInClass,
   useFadeOutClass,
   useInvisibleClass,
-  useSlideshowTheme
+  useSlideshowTheme,
 } from "../settings";
+import { useTimeout } from "./use-timeout";
 
 type SlideshowMetaFadeHookResult = [
   string, // fadeClassName
