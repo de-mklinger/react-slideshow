@@ -1,5 +1,5 @@
 import { PropsWithChildren } from "react";
-import { useTopBarRightClass } from "../../theme";
+import { useTopBarRightClass } from "../../settings";
 export function TopBarRight({ children }: PropsWithChildren) {
   const topBarRightClass = useTopBarRightClass();
 

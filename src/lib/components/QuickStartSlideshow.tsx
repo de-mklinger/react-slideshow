@@ -6,7 +6,7 @@ import {
   UnmanagedSlideshow,
   type UnmanagedSlideshowProps,
 } from "./UnmanagedSlideshow";
-import {useSlideshowScreenClass} from "../theme/use-slideshow-classes.ts";
+import {useSlideshowScreenClass} from "../settings/use-slideshow-classes.ts";
 
 export function QuickStartSlideshow<
   ItemT extends SlideshowItem = SlideshowItem,

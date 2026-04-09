@@ -7,7 +7,7 @@ import {
   useMetaClass,
   useTopBarClass,
   useTopBarMinimizedClass,
-} from "../../theme";
+} from "../../settings";
 import { TopBarLeft } from "./TopBarLeft";
 import classNames from "classnames";
 import { stopPropagation } from "../../lib/util.ts";

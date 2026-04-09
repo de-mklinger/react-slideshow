@@ -1,4 +1,4 @@
-import { createContext, CSSProperties, PropsWithChildren } from "react";
+import { CSSProperties } from "react";
 
 export type SlideshowTheme = {
   screen: {
@@ -55,38 +55,4 @@ export type SlideshowTheme = {
     disabledBackgroundColor: CSSProperties["color"];
     disabledBorderColor: CSSProperties["color"];
   };
-};
-
-type RecursivePartial<T> = {
-  [P in keyof T]?: T[P] extends (infer U)[]
-    ? RecursivePartial<U>[]
-    : T[P] extends object | undefined
-      ? RecursivePartial<T[P]>
-      : T[P];
-};
-
-export type SlideshowThemeOverrides = RecursivePartial<SlideshowTheme>;
-
-export type SlideshowThemeSettingsContextType = {
-  theme?: "default";
-  overrides?: SlideshowThemeOverrides;
-};
-
-export const SlideshowThemeSettingsContext = createContext<
-  SlideshowThemeSettingsContextType | undefined
->(undefined);
-
-export type SlideshowThemeSettingsProps =
-  PropsWithChildren<SlideshowThemeSettingsContextType>;
-
-export const SlideshowThemeSettings = ({
-  theme,
-  overrides,
-  children,
-}: SlideshowThemeSettingsProps) => {
-  return (
-    <SlideshowThemeSettingsContext.Provider value={{ theme, overrides }}>
-      {children}
-    </SlideshowThemeSettingsContext.Provider>
-  );
 };

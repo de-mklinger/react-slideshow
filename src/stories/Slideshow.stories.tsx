@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { Slideshow, SlideshowThemeSettings, TopBarChildren } from "../lib";
+import { Slideshow, SlideshowSettingsProvider, TopBarChildren } from "../lib";
 import { minimalDemoItems } from "../demo/demo-items";
 
 const meta: Meta<typeof Slideshow> = {
@@ -32,20 +32,24 @@ export const Default: Story = (args: typeof Default.args) => (
 Default.args = {};
 
 export const Small: Story = (args: typeof Small.args) => (
-  <SlideshowThemeSettings
-    overrides={{
-      screen: {
-        width: "800px",
-        height: "600px",
-        backgroundColor: "#333333",
-      },
-      meta: {
-        thumbnailSizePx: 100,
-        thumbnailFit: "cover",
+  <SlideshowSettingsProvider
+    settings={{
+      theme: {
+        overrides: {
+          screen: {
+            width: "800px",
+            height: "600px",
+            backgroundColor: "#333333",
+          },
+          meta: {
+            thumbnailSizePx: 100,
+            thumbnailFit: "cover",
+          },
+        },
       },
     }}
   >
     <Slideshow data-testId="InputField-id" items={minimalDemoItems} {...args} />
-  </SlideshowThemeSettings>
+  </SlideshowSettingsProvider>
 );
 Small.args = {};

@@ -1,4 +1,4 @@
-import { useBtnActiveClass, useBtnClass } from "../../theme";
+import { useBtnActiveClass, useBtnClass } from "../../settings";
 import { ButtonHTMLAttributes, PropsWithChildren } from "react";
 import classNames from "classnames";
 

@@ -1,5 +1,5 @@
 import React, {PropsWithChildren} from "react";
-import {useIconClass} from "../../theme";
+import {useIconClass} from "../../settings";
 import classNames from "classnames";
 
 export default function Icon({children, className, ...props}: PropsWithChildren<React.HTMLAttributes<HTMLSpanElement>>) {

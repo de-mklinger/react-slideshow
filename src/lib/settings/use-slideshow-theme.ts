@@ -1,37 +1,39 @@
 import { useContext, useMemo } from "react";
 import {
   SlideshowTheme,
-  SlideshowThemeSettingsContext,
 } from "./slideshow-theme.tsx";
 import { defaultSlideshowTheme } from "./default-slideshow-theme.ts";
+import { SlideshowSettingsContext } from "./slideshow-settings-context.ts";
 
 export function useSlideshowTheme(): SlideshowTheme {
-  const settings = useContext(SlideshowThemeSettingsContext);
+  const settings = useContext(SlideshowSettingsContext);
 
   return useMemo(() => {
-    if (settings?.theme && settings.theme !== "default") {
-      throw new Error("Unsupported theme: " + settings.theme);
+    if (settings?.theme?.name && settings.theme?.name !== "default") {
+      throw new Error("Unsupported theme: " + settings.theme.name);
     }
 
-    if (!settings?.overrides) {
+    const overrides = settings?.theme?.overrides;
+
+    if (!overrides) {
       return defaultSlideshowTheme;
     }
 
     const theme: SlideshowTheme = {
       screen: {
         ...defaultSlideshowTheme.screen,
-        ...settings.overrides.screen,
+        ...overrides.screen,
       },
       meta: {
         ...defaultSlideshowTheme.meta,
-        ...settings.overrides.meta,
+        ...overrides.meta,
       },
       button: {
         ...defaultSlideshowTheme.button,
-        ...settings.overrides.button,
+        ...overrides.button,
       },
     };
 
     return theme;
-  }, [settings?.theme, settings?.overrides]);
+  }, [settings?.theme?.name, settings?.theme?.overrides]);
 }

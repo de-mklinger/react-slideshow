@@ -1,6 +1,6 @@
 import { SlideshowItem } from "../../types";
 import { useHoverEffect } from "../../lib/use-hover-effect";
-import { useMetaClass, useTopBarClass } from "../../theme";
+import { useMetaClass, useTopBarClass } from "../../settings";
 import { TopBarLeft } from "./TopBarLeft";
 import { TopBarRight } from "./TopBarRight";
 import { TopBarChildren } from "../Slideshow";

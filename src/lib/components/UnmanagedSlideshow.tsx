@@ -15,7 +15,7 @@ import {
   useSlideshowScreenClass,
   useZoomedDragImageClass,
   useSlideshowTheme,
-} from "../theme";
+} from "../settings";
 import SlideshowMainItems from "./SlideshowMainItems";
 import SlideshowControls from "./controls/SlideshowControls";
 import { SlideshowProps } from "./Slideshow";

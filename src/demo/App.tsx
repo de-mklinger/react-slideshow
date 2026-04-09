@@ -1,6 +1,22 @@
-import {QuickStartSlideshow, TopBarChildren, Icon, SlideshowThemeSettings} from "../lib";
+import {
+  Icon,
+  QuickStartSlideshow,
+  TopBarChildren,
+  SlideshowSettings,
+  SlideshowSettingsProvider,
+} from "../lib";
 import { customizedDemoItems, CustomizedSlideshowItem } from "./demo-items.ts";
-import {CircleInfoSvg} from "../lib/components/controls/icons";
+import { CircleInfoSvg } from "../lib/components/controls/icons";
+
+const settings: SlideshowSettings = {
+  theme: {
+    overrides: {
+      meta: {
+        hideEnabled: false,
+      },
+    },
+  },
+};
 
 export default function App() {
   const RightChildren: TopBarChildren<CustomizedSlideshowItem> = (props) => {
@@ -27,15 +43,11 @@ export default function App() {
   };
 
   return (
-    <SlideshowThemeSettings overrides={{
-      meta: {
-        hideEnabled: false
-      }
-    }}>
+    <SlideshowSettingsProvider settings={settings}>
       <QuickStartSlideshow
         items={customizedDemoItems}
         topBarRightChildren={RightChildren}
       />
-    </SlideshowThemeSettings>
+    </SlideshowSettingsProvider>
   );
 }

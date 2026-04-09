@@ -8,7 +8,7 @@ import {
   useThumbnailClass,
   useThumbnailsHorizontalListClass,
   useThumbnailWrapperClass,
-} from "../../theme";
+} from "../../settings";
 import { Control, FixedSizeList } from "../../window";
 import { SlideshowItem } from "../../types";
 import classNames from "classnames";

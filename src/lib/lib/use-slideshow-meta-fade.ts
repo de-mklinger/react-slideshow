@@ -4,8 +4,8 @@ import {
   useFadeInClass,
   useFadeOutClass,
   useInvisibleClass,
-} from "../theme/use-slideshow-classes.ts";
-import {useSlideshowTheme} from "../theme/use-slideshow-theme.ts";
+  useSlideshowTheme
+} from "../settings";
 
 type SlideshowMetaFadeHookResult = [
   string, // fadeClassName
