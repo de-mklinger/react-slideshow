@@ -10,7 +10,7 @@ type RecursivePartial<T> = {
 };
 
 export type SlideshowBaseSettingsOverrides =
-  RecursivePartial<SlideshowBaseSettings>;
+  Partial<SlideshowBaseSettings>;
 
 export type SlideshowThemeOverrides = RecursivePartial<SlideshowTheme>;
 

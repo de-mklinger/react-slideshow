@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import { MutableRefObject, RefCallback, useCallback, useRef } from "react";
 import { useHoverEffect } from "../../lib/use-hover-effect";
+import { ImageProps, useImageProps } from "../../lib/use-image-props.ts";
 import { stopPropagation } from "../../lib/util.ts";
 import {
   useBottomBarClass,
@@ -11,6 +12,7 @@ import {
   useThumbnailsHorizontalListClass,
   useThumbnailWrapperClass,
 } from "../../settings";
+import { useSlideshowBaseSettings } from "../../settings/use-slideshow-base-settings.ts";
 import { SlideshowItem } from "../../types";
 import { Control, FixedSizeList } from "../../window";
 
@@ -44,6 +46,8 @@ export function BottomBar({
   const thumbnailClass = useThumbnailClass();
   const selectedThumbnailClass = useSelectedThumbnailClass();
 
+  const imageProps = useThumbnailImageProps();
+
   const renderThumbnail = useCallback(
     (idx: number) => {
       const selected = idx === currentItemIdxRef.current;
@@ -65,8 +69,7 @@ export function BottomBar({
             className={classNames(thumbnailClass, {
               [selectedThumbnailClass]: selected,
             })}
-            loading="lazy"
-            decoding="async"
+            {...imageProps}
           />
         </a>
       );
@@ -78,6 +81,7 @@ export function BottomBar({
       thumbnailWrapperClass,
       thumbnailClass,
       selectedThumbnailClass,
+      imageProps,
     ],
   );
 
@@ -118,4 +122,11 @@ export function BottomBar({
       />
     </div>
   );
+}
+
+function useThumbnailImageProps(): ImageProps {
+  const { thumbnailImageLoading, thumbnailImageDecoding } =
+    useSlideshowBaseSettings();
+
+  return useImageProps(thumbnailImageLoading, thumbnailImageDecoding);
 }

@@ -1,5 +1,7 @@
 import { type CSSProperties, memo, type SyntheticEvent } from "react";
+import { ImageProps, useImageProps } from "../lib/use-image-props.ts";
 import { isVideo } from "../lib/util";
+import { useSlideshowBaseSettings } from "../settings/use-slideshow-base-settings.ts";
 import { type MinimalMainItem } from "../types";
 
 export type SlideshowMainItemProps = {
@@ -52,6 +54,8 @@ function WrappedSlideshowMainItem({
     style = invisibleStyle;
   }
 
+  const imageProps = useSlideshowImageProps(visible);
+
   if (isVideo(item)) {
     return (
       <video
@@ -67,17 +71,24 @@ function WrappedSlideshowMainItem({
   }
 
   return (
-    <img
-      onLoad={onLoad}
-      alt=""
-      style={style}
-      src={item.url}
-      loading={visible ? "eager" : "lazy"}
-      decoding={visible ? "auto" : "async"}
-    />
+    <img onLoad={onLoad} alt="" style={style} src={item.url} {...imageProps} />
   );
 }
 
 const SlideshowMainItem = memo(WrappedSlideshowMainItem);
 
 export default SlideshowMainItem;
+
+function useSlideshowImageProps(visible: boolean): ImageProps {
+  const {
+    visibleImageLoading,
+    visibleImageDecoding,
+    preloadImageLoading,
+    thumbnailImageDecoding,
+  } = useSlideshowBaseSettings();
+
+  const imageLoading = visible ? visibleImageLoading : preloadImageLoading;
+  const imageDecoding = visible ? visibleImageDecoding : thumbnailImageDecoding;
+
+  return useImageProps(imageLoading, imageDecoding);
+}
