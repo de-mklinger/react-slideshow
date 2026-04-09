@@ -84,11 +84,11 @@ function useSlideshowImageProps(visible: boolean): ImageProps {
     visibleImageLoading,
     visibleImageDecoding,
     preloadImageLoading,
-    thumbnailImageDecoding,
+    preloadImageDecoding,
   } = useSlideshowBaseSettings();
 
   const imageLoading = visible ? visibleImageLoading : preloadImageLoading;
-  const imageDecoding = visible ? visibleImageDecoding : thumbnailImageDecoding;
+  const imageDecoding = visible ? visibleImageDecoding : preloadImageDecoding;
 
   return useImageProps(imageLoading, imageDecoding);
 }
